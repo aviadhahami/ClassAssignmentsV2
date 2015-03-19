@@ -8,7 +8,7 @@
  * Controller of the classAssignmentsV2App
  */
 angular.module('classAssignmentsV2App')
-  .controller('AddtaskCtrl', function ($scope){//,setClassContentFactory) {
+  .controller('AddtaskCtrl', function ($scope,setClassContentFactory) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -27,7 +27,7 @@ angular.module('classAssignmentsV2App')
         console.log(1);
     };
     $scope.createTask = function(){
-    	//setClassContentFactory($scope.user);
+    	setClassContentFactory.setContent($scope.user);
         console.log($scope.user);
     };
   })

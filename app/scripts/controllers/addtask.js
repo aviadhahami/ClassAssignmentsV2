@@ -8,22 +8,27 @@
  * Controller of the classAssignmentsV2App
  */
 angular.module('classAssignmentsV2App')
-  .controller('AddtaskCtrl', function ($scope,setClassContentFactory) {
+  .controller('AddtaskCtrl', function ($scope){//,setClassContentFactory) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
      $scope.user = {
-      title: 'Write Task Subject Here',
-      submissionDate:'',
-      number:'number here '
+      subject: 'Write Task Subject Here',
+      due:{
+          year:'',
+          month:'',
+          day:''
+      },
+      number:'number here'
     };
     $scope.alert = function (){
         console.log(1);
     };
     $scope.createTask = function(){
-    	setClassContentFactory($scope.user);
+    	//setClassContentFactory($scope.user);
+        console.log($scope.user);
     };
   })
   .config( function($mdThemingProvider){

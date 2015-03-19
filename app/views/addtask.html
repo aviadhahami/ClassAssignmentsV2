@@ -22,7 +22,9 @@
 -->
 
 
-<form ng-submit="alert()">
-    Title : <input ng-model="user.title" />
+<form ng-submit="createTask()">
+    Title : <input ng-model="user.subject" />
     Number : <input ng-model="user.number" />
+    Date : <input ng-model="user.due.year" /> <input ng-model="user.due.month" /> <input ng-model="user.due.day" />
+    <input type="submit" value="Submit Form">
 </form>

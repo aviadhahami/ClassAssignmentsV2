@@ -19,6 +19,9 @@ angular.module('classAssignmentsV2App')
       submissionDate:'',
       number:'number here '
     };
+    $scope.alert = function (){
+        console.log(1);
+    };
     $scope.createTask = function(){
     	setClassContentFactory($scope.user);
     };

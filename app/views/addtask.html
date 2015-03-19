@@ -1,6 +1,6 @@
 <!-- <md-form ng-submit="alert()">
 <div layout="column">
-	<h1> Add new task </h1>
+        <h1> Add new task </h1>
   <md-content md-theme="docs-dark" class="md-padding" layout="row" layout-sm="column" style="font-size:1.2em">
     <md-input-container>
       <label>Title</label>
@@ -25,6 +25,9 @@
 <form ng-submit="createTask()">
     Title : <input ng-model="user.subject" />
     Number : <input ng-model="user.number" />
-    Date : <input ng-model="user.due.year" /> <input ng-model="user.due.month" /> <input ng-model="user.due.day" />
+    Date (DD MM YY):  <input ng-model="user.due.day" class="smallInputBox"/>
+    <input ng-model="user.due.month" class="smallInputBox"/>
+    <input ng-model="user.due.year" class="smallInputBox"/>
+    <br />
     <input type="submit" value="Submit Form">
 </form>

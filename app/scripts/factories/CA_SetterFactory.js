@@ -9,7 +9,7 @@ angular.module('customFactories',[]).factory('setClassContentFactory',function (
             //json demo : {"path":"data/idc/","fname":"cs16"}
             var path = 'data/idc/';
             var fname= 'cs16';
-            fullPath += 'path=' +path + '&fname='+ fname + '&data=' +data;
+            fullPath += 'path=' +path + '&fname='+ fname + '&data=' +JSON.stringify(data);
             //TODO: implement this via POST method
             return $http.get(fullPath);
         }  

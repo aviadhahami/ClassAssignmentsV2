@@ -10,7 +10,6 @@ angular.module('customFactories',[]).factory('setClassContentFactory',function (
             var path = 'data/idc/';
             var fname= 'cs16';
             fullPath += 'path=' +path + '&fname='+ fname + '&data=' +data;
-            console.log(fullPath);
             //TODO: implement this via POST method
             return $http.get(fullPath);
         }  

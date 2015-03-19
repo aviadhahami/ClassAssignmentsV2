@@ -7,35 +7,41 @@
 angular.module('customFilters', []).filter('futureDates', function () {
     return function (items) {
         var filtered = [];
+        var date = new Date();
+
         angular.forEach(items, function (item) {
-            var date = new Date();
-             if (item.due.getFullYear() > date.getFullYear()) {
-                filtered.push(item);
-            } else if (item.due.getFullYear() === date.getFullYear()) { //year is even
-                if (item.due.getMonth() > date.getMonth()+1) {
+            if (item) {
+                if (item.due.getFullYear() > date.getFullYear()) {
                     filtered.push(item);
-                } else if (item.due.getMonth() === date.getMonth()+1) { //month even
-                    if (item.due.getDate() > date.getDate()) {
+                } else if (item.due.getFullYear() === date.getFullYear()) { //year is even
+                    if (item.due.getMonth() > date.getMonth() + 1) {
                         filtered.push(item);
+                    } else if (item.due.getMonth() === date.getMonth() + 1) { //month even
+                        if (item.due.getDate() > date.getDate()) {
+                            filtered.push(item);
+                        }
                     }
                 }
             }
         });
         return filtered;
     };
-}).filter('pastDate', function () {
+}
+).filter('pastDate', function () {
     return function (items) {
         var filtered = [];
+        var date = new Date();
         angular.forEach(items, function (item) {
-            var date = new Date();
-            if (item.due.getFullYear() < date.getFullYear()) {
-                filtered.push(item);
-            } else if (item.due.getFullYear() === date.getFullYear()) { //year is even
-                if (item.due.getMonth() < date.getMonth()+1) {
+            if (item) {
+                if (item.due.getFullYear() < date.getFullYear()) {
                     filtered.push(item);
-                } else if (item.due.getMonth() === date.getMonth()+1) { //month even
-                    if (item.due.getDate() < date.getDate()) {
+                } else if (item.due.getFullYear() === date.getFullYear()) { //year is even
+                    if (item.due.getMonth() < date.getMonth() + 1) {
                         filtered.push(item);
+                    } else if (item.due.getMonth() === date.getMonth() + 1) { //month even
+                        if (item.due.getDate() < date.getDate()) {
+                            filtered.push(item);
+                        }
                     }
                 }
             }

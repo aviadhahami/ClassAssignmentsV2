@@ -1,0 +1,41 @@
+{
+    "records": [
+        {
+            "number": "1",
+            "subject": "Operating Systems",
+            "due": {
+                "year": 2015,
+                "month": 3,
+                "day": 22
+            }
+        },
+        {
+            "number": "1",
+            "subject": "Digital Graphics",
+            "due" :{
+                "year": 2015,
+                "month" : 3,
+                "day" : 22
+            }
+        },
+        {
+            "number": "2",
+            "subject": "Funding",
+            "due" :{
+                "year": 2015,
+                "month" : 3,
+                "day" : 16
+            }
+        },
+         {
+            "number": "1",
+            "subject": "Statistics",
+            "due" :{
+                "year": 2015,
+                "month" : 3,
+                "day" : 16
+            }
+        }
+        
+    ]
+}

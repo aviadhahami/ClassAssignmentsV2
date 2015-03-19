@@ -1,0 +1,21 @@
+<md-form ng-submit="createTask()">
+<div layout="column">
+	<h1> Add new task </h1>
+  <md-content md-theme="docs-dark" class="md-padding" layout="row" layout-sm="column" style="font-size:1.2em">
+    <md-input-container>
+      <label>Title</label>
+      <input ng-model="user.title">
+    </md-input-container>
+       <md-input-container>
+      <label>Task number</label>
+      <input ng-model="user.number" >
+    </md-input-container>
+      <md-input-container flex>
+          <label>Submission Date</label>
+          <input type="date" ng-model="user.submissionDate">
+        </md-input-container>
+  </md-content>
+  <md-button class="md-raised md-primary">Add task!</md-button>
+  <br />
+</div>
+</md-form>

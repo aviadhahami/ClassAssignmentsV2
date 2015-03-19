@@ -1,0 +1,49 @@
+<div>
+    <h1 ng-repeat="ass in assignList">{{ass.due.day}}</h1>
+    <md-toolbar class="md-theme-light">
+        <h1 class="md-toolbar-tools">
+            <span>Future Assignments</span>
+        </h1>
+    </md-toolbar>
+    <md-content>
+        <md-list>
+            <md-item ng-repeat="ass in assignList | orderBy: 'due.day' | futureDates">
+                <md-item-content>
+                    <div class="md-tile-content">
+                        <h3><b>{{ass.subject}}</b></h3>
+                        <h4>Assignment #{{ ass.number}}</h4>
+                        <p>
+                            Due: {{ass.due.getDate() + "/"+ ass.due.getMonth() + "/" + ass.due.getFullYear()}}
+                        </p>
+                    </div>
+                </md-item-content>
+                <md-divider ng-if="!$last"></md-divider>
+            </md-item>
+        </md-list>
+    </md-content>
+        
+        
+    <md-toolbar class="md-theme-light">
+        <h1 class="md-toolbar-tools">
+            <span>Past Assignments</span>
+        </h1>
+    </md-toolbar>
+    <md-content>
+        <md-list>
+            <md-item ng-repeat="ass in assignList | orderBy: 'due.year' | pastDate">
+                <md-item-content>
+                    <div class="md-tile-content">
+                        <h3><b>{{ass.subject}}</b></h3>
+                        <h4>Assignment #{{ ass.number}}</h4>
+                        <p>
+                            Due: {{ass.due.getDate() + "/"+ ass.due.getMonth() + "/" + ass.due.getFullYear()}}
+                        </p>
+                    </div>
+                </md-item-content>
+                <md-divider ng-if="!$last"></md-divider>
+            </md-item>
+        </md-list>
+    </md-content>
+    <br />
+        
+</div>

@@ -58,6 +58,46 @@ body {
 .marketing p + h4 {
   margin-top: 28px;
 }
+/* Custom styles */
+#custom-bootstrap-menu.navbar-default .navbar-brand {
+    color: rgba(0, 223, 252, 1);
+}
+#custom-bootstrap-menu.navbar-default {
+    font-size: 14px;
+    background-color: rgba(52, 56, 56, 1);
+    border-width: 1px;
+    border-radius: 4px;
+}
+#custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
+    color: rgba(0, 140, 158, 1);
+    background-color: rgba(52, 56, 56, 1);
+}
+#custom-bootstrap-menu.navbar-default .navbar-nav>li>a:hover,
+#custom-bootstrap-menu.navbar-default .navbar-nav>li>a:focus {
+    color: rgba(0, 180, 204, 1);
+    background-color: rgba(52, 56, 56, 1);
+}
+#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a,
+#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:hover,
+#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:focus {
+    color: rgba(0, 180, 204, 1);
+    background-color: rgba(52, 56, 56, 1);
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle {
+    border-color: #343838;
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle:hover,
+#custom-bootstrap-menu.navbar-default .navbar-toggle:focus {
+    background-color: #343838;
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle .icon-bar {
+    background-color: #343838;
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle:hover .icon-bar,
+#custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
+    background-color: #343838;
+}
+/* End custon styles */
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {

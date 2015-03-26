@@ -4,11 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/aviadh/Documents/Websites/ClassAssignmentsV2/app/scripts/app.js</file>
-            <file>file:/C:/Users/aviadh/Documents/Websites/ClassAssignmentsV2/app/scripts/factories/CA_SetterFactory.js</file>
-            <file>file:/C:/Users/aviadh/Documents/Websites/ClassAssignmentsV2/server/classes/Setter.php</file>
-            <file>file:/C:/Users/aviadh/Documents/Websites/ClassAssignmentsV2/server/classes/Fetcher.php</file>
             <file>file:/C:/Users/aviadh/Documents/Websites/ClassAssignmentsV2/app/scripts/controllers/addtask.js</file>
-            <file>file:/C:/Users/aviadh/Documents/Websites/ClassAssignmentsV2/server/ClassAssignmentsSetter.php</file>
+            <file>file:/C:/Users/aviadh/Documents/Websites/ClassAssignmentsV2/app/styles/main.css</file>
+            <file>file:/C:/Users/aviadh/Documents/Websites/ClassAssignmentsV2/app/views/addtask.html</file>
         </group>
     </open-files>
 </project-private>

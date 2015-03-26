@@ -59,44 +59,27 @@ body {
   margin-top: 28px;
 }
 /* Custom styles */
-#custom-bootstrap-menu.navbar-default .navbar-brand {
-    color: rgba(0, 223, 252, 1);
+.headerBG{
+background: #77487f; /* Old browsers */
+background: -moz-linear-gradient(left,  #77487f 0%, #190119 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,#77487f), color-stop(100%,#190119)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(left,  #77487f 0%,#190119 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(left,  #77487f 0%,#190119 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(left,  #77487f 0%,#190119 100%); /* IE10+ */
+background: linear-gradient(to right,  #77487f 0%,#190119 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#77487f', endColorstr='#190119',GradientType=1 ); /* IE6-9 */
+
+
 }
-#custom-bootstrap-menu.navbar-default {
-    font-size: 14px;
-    background-color: rgba(52, 56, 56, 1);
-    border-width: 1px;
-    border-radius: 4px;
+.headerTxt{
+  text-align: left;
+  color: white;
 }
-#custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
-    color: rgba(0, 140, 158, 1);
-    background-color: rgba(52, 56, 56, 1);
+header h1{
+  margon:0;
 }
-#custom-bootstrap-menu.navbar-default .navbar-nav>li>a:hover,
-#custom-bootstrap-menu.navbar-default .navbar-nav>li>a:focus {
-    color: rgba(0, 180, 204, 1);
-    background-color: rgba(52, 56, 56, 1);
-}
-#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a,
-#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:hover,
-#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:focus {
-    color: rgba(0, 180, 204, 1);
-    background-color: rgba(52, 56, 56, 1);
-}
-#custom-bootstrap-menu.navbar-default .navbar-toggle {
-    border-color: #343838;
-}
-#custom-bootstrap-menu.navbar-default .navbar-toggle:hover,
-#custom-bootstrap-menu.navbar-default .navbar-toggle:focus {
-    background-color: #343838;
-}
-#custom-bootstrap-menu.navbar-default .navbar-toggle .icon-bar {
-    background-color: #343838;
-}
-#custom-bootstrap-menu.navbar-default .navbar-toggle:hover .icon-bar,
-#custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
-    background-color: #343838;
-}
+
+
 /* End custon styles */
 
 /* Responsive: Portrait tablets and up */
@@ -122,6 +105,6 @@ body {
   }
   /* CUSTOM CLASSES */
   .smallInputBox{
-      width: 5%;
+    width: 5%;
   }
 }

@@ -2,10 +2,12 @@
 	<h3>Upcoming tasks</h3>
 
 
-	<div class="panel panel-default">
-		<div class="panel-heading">Panel heading without title</div>
+	<div class="panel panel-default" ng-repeat="ass in assignList | orderBy: 'due.day' | futureDates">
+		<div class="panel-heading">{{ass.subject}}</div>
 		<div class="panel-body">
-			Panel content
+			Assignment #{{ ass.number}}
+			<br />
+			Due: {{ass.due.getDate() + "/"+ ass.due.getMonth() + "/" + ass.due.getFullYear()}}
 		</div>
 	</div>
 
@@ -13,10 +15,15 @@
 </div>
 <div class="col-md-6">
 	<h3>Past tasks</h3>
-	<div class="panel panel-default">
-		<div class="panel-heading">Panel heading without title</div>
+
+
+
+	<div class="panel panel-default" ng-repeat="ass in assignList | orderBy: 'due.year' | pastDate">
+		<div class="panel-heading">{{ass.subject}}</div>
 		<div class="panel-body">
-			Panel content
+			Assignment #{{ ass.number}}
+			<br />
+			Due: {{ass.due.getDate() + "/"+ ass.due.getMonth() + "/" + ass.due.getFullYear()}}
 		</div>
 	</div>
 </div>

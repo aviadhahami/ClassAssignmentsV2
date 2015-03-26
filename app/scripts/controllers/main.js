@@ -10,6 +10,7 @@
  angular.module('classAssignmentsV2App')
  .controller('MainCtrl', function ($scope,getClassContentFactory) {
  	$scope.calcDays = function (date1,date2){
+ 		console.log(date1,date2);
  		var timeDiff = Math.abs(date2.getTime() - date1.getTime());
  		var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
  		return diffDays;
@@ -22,10 +23,9 @@
                         //Get 1 day in milliseconds
                         var today = new Date();
                         angular.forEach(data, function (item) {
-                        	var dateStr = item.due.month + '/' + item.due.day + '/' + item.due.year;
-                        	item.due = new Date(dateStr);
-                        	//item.due = new Date(item.due.year, item.due.month, item.due.day);
-                        	item.timeLeft = $scope.calcDays(today,item.due);
+                        	item.dueRaw = new Date(item.due.year, item.due.month-1, item.due.day);
+                        	item.due = new Date(item.due.year, item.due.month, item.due.day);
+                        	item.timeLeft = $scope.calcDays(today,item.dueRaw);
                         });
                     }).error(function (data) {
                     	console.log('CRAZY ERROR!');

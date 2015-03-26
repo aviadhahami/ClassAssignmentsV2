@@ -20,7 +20,8 @@ angular
     'ngTouch',
     'ngMaterial',
  'customFilters',
- 'customFactories'
+ 'customFactories',
+ 'datePicker'
 
   ])
   .config(function ($routeProvider) {

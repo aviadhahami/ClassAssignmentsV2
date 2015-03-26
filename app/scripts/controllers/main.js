@@ -8,7 +8,7 @@
  * Controller of the classAssignmentsV2App
  */
  angular.module('classAssignmentsV2App')
- .controller('MainCtrl', function ($scope,getClassContentFactory) {
+ .controller('MainCtrl', function ($scope,getClassContentFactory,setClassContentFactory) {
  	$scope.calcDays = function (date1,date2){
  		console.log(date1,date2);
  		var timeDiff = Math.abs(date2.getTime() - date1.getTime());
@@ -31,4 +31,21 @@
                     	console.log('CRAZY ERROR!');
                     	console.log(data);
                     });
-                });
+
+//OUT GOING AJAX //
+var d = new Date();
+$scope.user = {
+	subject: 'Write Task Subject Here',
+	due: {
+		year: d.getFullYear(),
+		month: d.getMonth() + 1,
+		day: d.getDate()
+	},
+	number: 'number here'
+};
+
+$scope.createTask = function () {
+	setClassContentFactory.setContent($scope.user);
+	console.log($scope.user);
+};  
+});

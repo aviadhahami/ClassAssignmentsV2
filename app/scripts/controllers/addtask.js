@@ -9,11 +9,7 @@
  */
 angular.module('classAssignmentsV2App')
         .controller('AddtaskCtrl', function ($scope, setClassContentFactory) {
-            $scope.awesomeThings = [
-                'HTML5 Boilerplate',
-                'AngularJS',
-                'Karma'
-            ];
+
             var d = new Date();
             $scope.user = {
                 subject: 'Write Task Subject Here',

@@ -38,13 +38,13 @@
 //OUT GOING AJAX //
 var d = new Date();
 $scope.user = {
-	subject: 'Write Task Subject Here',
+	subject: '',
 	due: {
 		year: d.getFullYear(),
 		month: d.getMonth() + 1,
 		day: d.getDate()
 	},
-	number: 99,
+	number: 0,
 	rawDateInput : ''
 };
 

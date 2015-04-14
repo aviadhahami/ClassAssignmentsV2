@@ -11,6 +11,7 @@
  .controller('MainCtrl', function ($scope,getClassContentFactory,setClassContentFactory) {
  	$scope.datePattern = 'dd/MM/yyyy';
  	$scope.loading = true;
+ 	$scope.didSubmit = true;
  	$scope.calcDays = function (date1,date2){
  		//console.log(date1,date2);
  		var timeDiff = Math.abs(date2.getTime() - date1.getTime());
@@ -49,11 +50,12 @@ $scope.user = {
 };
 
 $scope.createTask = function () {
-
+	$scope.didSubmit = false;
 	$scope.user.rawDateInputContainer = $scope.user.rawDateInput.split('\/');
 	$scope.user.due.year = $scope.user.rawDateInputContainer[2];
 	$scope.user.due.month = $scope.user.rawDateInputContainer[1];
 	$scope.user.due.day = $scope.user.rawDateInputContainer[0];
+	$scope.user.rawDateInputContainer = 'done';
 	//console.log($scope.user.due.day,$scope.user.due.month,$scope.user.due.day);
 	setClassContentFactory.setContent($scope.user);
 	console.log($scope.user);

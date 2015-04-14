@@ -59,12 +59,13 @@
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4 class="modal-title" id="myModalLabel"><b>Add new time consumer</b></h4>
 				</div>
-				<div class="modal-body">
+				<div class="modal-body"  ng-if="didSubmit">
 					<!-- MODAL CONTENT -->
 					<form ng-submit="createTask()" class="form-inline">
 						<div class="col-md-4">
 							<div class="form-group">
 								Title : <input type="text" placeholder="{{user.subject}}" ng-model="user.subject" />
+								Number : <input type="number" palceholder="Task number here" ng-model="user.number" />
 
 							<!-- <div class="form-group">
 								Date : 
@@ -87,7 +88,12 @@
 					</div>
 				</form>
 			</div>
+			<div class="modal-body"  ng-if="!didSubmit">
+				<!-- MODAL CONTENT -->
+				<h4>Thank you for submitting ! </h4>
+			</div>
 		</div>
+
 	</div>
 </div>
 </div>

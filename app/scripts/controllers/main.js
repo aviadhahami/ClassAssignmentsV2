@@ -9,6 +9,7 @@
  */
  angular.module('classAssignmentsV2App')
  .controller('MainCtrl', function ($scope,getClassContentFactory,setClassContentFactory) {
+ 	$scope.loading = true;
  	$scope.calcDays = function (date1,date2){
  		console.log(date1,date2);
  		var timeDiff = Math.abs(date2.getTime() - date1.getTime());
@@ -18,6 +19,7 @@
   //=======AJAX REQUEST ! =========
   getClassContentFactory.getContent('data/idc/', 'cs16')
   .success(function (data) {
+  	$scope.loading = false;
   	$scope.assignList = data;
                         //converting the JSON to Date() object
                         //Get 1 day in milliseconds
@@ -49,5 +51,5 @@ $scope.createTask = function () {
 	console.log($scope.user);
 };  
 
- $scope.selectedDate = d;
+$scope.selectedDate = d;
 });

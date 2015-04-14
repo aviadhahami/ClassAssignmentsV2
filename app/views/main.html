@@ -64,10 +64,17 @@
 					<form ng-submit="createTask()" class="form-inline">
 						<div class="col-md-4">
 							<div class="form-group">
-								Title : <input type="text" placeholder="{{user.subject}}" />
+								Title : <input type="text" placeholder="{{user.subject}}" ng-model="user.subject" />
 							</div>
 							<div class="form-group">
-								Number : <input type="number" palceholder="{{user.number}}" />
+								Number : <input type="number" palceholder="{{user.number}}" ng-model="user.number" />
+							</div>
+							<div class="form-group">
+							Date : 
+							<hr />
+							year (yyyy) <input type="number" placeholder="{{user.due.year}}" ng-model="user.due.year"/>
+							month (mm) <input type="number" placeholder="{{user.due.month}}" ng-model="user.due.month"/>
+							day (dd) <input type="number" placeholder="{{user.due.day}}" ng-model="user.due.day"/>
 							</div>
 						</div>
 						<div class="col-md-4">

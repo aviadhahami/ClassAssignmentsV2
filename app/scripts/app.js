@@ -8,45 +8,44 @@
  *
  * Main module of the application.
  */
-angular
-  .module('classAssignmentsV2App', [
-    'ngAnimate',
-    'ngAria',
-    'ngCookies',
-    'ngMessages',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch',
-    'ngMaterial',
- 'customFilters',
- 'customFactories',
- 'datePicker'
+ angular
+ .module('classAssignmentsV2App', [
+  'ngAnimate',
+  'ngAria',
+  'ngCookies',
+  'ngMessages',
+  'ngResource',
+  'ngRoute',
+  'ngSanitize',
+  'ngTouch',
+  'ngMaterial',
+  'customFilters',
+  'customFactories'
 
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-      })
-      .when('/homework', {
-        templateUrl: 'views/homework.html',
-        controller: 'HomeworkCtrl'
-      })
-      .when('/addTask', {
-        templateUrl: 'views/addtask.html',
-        controller: 'AddtaskCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  }).config(function($mdThemingProvider) {
+ .config(function ($routeProvider) {
+  $routeProvider
+  .when('/', {
+    templateUrl: 'views/main.html',
+    controller: 'MainCtrl'
+  })
+  .when('/about', {
+    templateUrl: 'views/about.html',
+    controller: 'AboutCtrl'
+  })
+  .when('/homework', {
+    templateUrl: 'views/homework.html',
+    controller: 'HomeworkCtrl'
+  })
+  .when('/addTask', {
+    templateUrl: 'views/addtask.html',
+    controller: 'AddtaskCtrl'
+  })
+  .otherwise({
+    redirectTo: '/'
+  });
+}).config(function($mdThemingProvider) {
   $mdThemingProvider.theme('default')
-    .primaryPalette('deep-purple')
-    .accentPalette('orange');
+  .primaryPalette('deep-purple')
+  .accentPalette('orange');
 });

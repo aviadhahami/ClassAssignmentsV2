@@ -49,6 +49,10 @@ $scope.user = {
 };
 
 $scope.createTask = function () {
+	$scope.user.rawDateInput = $scope.user.rawDateInput.split('\/');
+	$scope.due.year = $scope.user.rawDateInput[2];
+	$scope.due.month = $scope.user.rawDateInput[1];
+	$scope.due.day = $scope.user.rawDateInput[0];
 	setClassContentFactory.setContent($scope.user);
 	console.log($scope.user);
 };  

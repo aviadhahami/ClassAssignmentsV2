@@ -28,6 +28,7 @@
                         	item.dueRaw = new Date(item.due.year, item.due.month-1, item.due.day);
                         	item.due = new Date(item.due.year, item.due.month, item.due.day);
                         	item.timeLeft = $scope.calcDays(today,item.dueRaw);
+                        	item.isFuture = item.timeLeft > 0;
                         });
                     }).error(function (data) {
                     	console.log('CRAZY ERROR!');

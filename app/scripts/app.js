@@ -20,8 +20,8 @@
   'ngTouch',
   'ngMaterial',
   'customFilters',
-  'customFactories'
-
+  'customFactories',
+  '720kb.datepicker'
   ])
  .config(function ($routeProvider) {
   $routeProvider

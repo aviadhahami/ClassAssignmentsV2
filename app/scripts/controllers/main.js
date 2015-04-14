@@ -25,15 +25,15 @@
                         //converting the JSON to Date() object
                         //Get 1 day in milliseconds
                         var today = new Date();
-                      //  angular.forEach(data, function (item) {
-                      	item.dueRaw = new Date(item.due.year, item.due.month-1, item.due.day);
-                      	item.due = new Date(item.due.year, item.due.month, item.due.day);
-                      	item.timeLeft = $scope.calcDays(today,item.dueRaw);
-                        //});
-}).error(function (data) {
-	console.log('CRAZY ERROR!');
-	console.log(data);
-});
+                        angular.forEach(data, function (item) {
+                        	item.dueRaw = new Date(item.due.year, item.due.month-1, item.due.day);
+                        	item.due = new Date(item.due.year, item.due.month, item.due.day);
+                        	item.timeLeft = $scope.calcDays(today,item.dueRaw);
+                        });
+                    }).error(function (data) {
+                    	console.log('CRAZY ERROR!');
+                    	console.log(data);
+                    });
 
 //OUT GOING AJAX //
 var d = new Date();

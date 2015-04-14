@@ -65,8 +65,8 @@
 					<form ng-submit="createTask()" class="form-inline">
 						<div class="col-md-4">
 							<div class="form-group">
-								Title : <input type="text" placeholder="{{user.subject}}" ng-model="user.subject" />
-								Number : <input type="number" palceholder="Task number here" ng-model="user.number" />
+								Task subject : <input type="text" placeholder="{{user.subject}}" ng-model="user.subject" />
+								Task number : <input type="number" palceholder="Task number here" ng-model="user.number" />
 
 							<!-- <div class="form-group">
 								Date : 
@@ -76,7 +76,7 @@
 								day (dd) <input type="number" placeholder="{{user.due.day}}" ng-model="user.due.day"/>
 							</div> -->
 
-							Pick a date:
+							Submission date:
 							<datepicker date-format="{{datePattern}}">
 								<input ng-model="user.rawDateInput" type="text"/>
 							</datepicker>

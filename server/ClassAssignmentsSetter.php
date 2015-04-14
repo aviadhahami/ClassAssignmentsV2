@@ -24,7 +24,7 @@ if ($filter == 1 || is_null($filter)) {
 $fname=$filter;
 $filter = isset($_GET['data']) ? strip_tags($_GET['data']) : "1";
 if ($filter == 1 || is_null($filter)) {
-	echo "data";
+	echo "data is not set";
         return 1;  
 }
 $data=$filter;

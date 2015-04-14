@@ -40,7 +40,7 @@ $scope.user = {
 	subject: 'Write Task Subject Here',
 	due: {
 		year: d.getFullYear(),
-		month: d.getMonth() + 1,
+		month: d.getMonth() + 2,
 		day: d.getDate()
 	},
 	number: 'number here'

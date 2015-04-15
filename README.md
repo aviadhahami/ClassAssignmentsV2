@@ -1,9 +1,8 @@
-# class-assignments-v2
+# CS2016 - Class Assignments tracker!
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.11.1.
 
 ## Build & development
 
-Build by me, for my class
+Built by me, for my class. feel free to fork!
+Built using Yeoman, Grunt, Bower, Node, PHP, Angular
 

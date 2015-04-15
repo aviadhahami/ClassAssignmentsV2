@@ -30,6 +30,7 @@
                         	item.dueRaw = new Date(item.due.year, item.due.month-1, item.due.day);
                         	item.due = new Date(item.due.year, item.due.month, item.due.day);
                         	item.timeLeft = $scope.calcDays(today,item.dueRaw);
+                        	item.timeLeftString = item.timeLeft >= 1 ? 'TODAY' : item.timeLeft + 'Days to go';
                         });
                     }).error(function (data) {
                     	console.log('CRAZY ERROR!');

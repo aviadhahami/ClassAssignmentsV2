@@ -9,7 +9,7 @@
 		<h3>Upcoming tasks</h3>
 
 		<div class="panel panel-primary" ng-repeat="ass in assignList | futureDates | orderBy: 'timeLeft' ">
-			<div class="panel-heading">{{ass.subject}}<span style="float:right;"class="badge">{{ass.timeLeft}} days to go</span></div>
+			<div class="panel-heading">{{ass.subject}}<span style="float:right;"class="badge">{{ass.timeLeftString}}</span></div>
 			<div class="panel-body">
 				Assignment #{{ass.number}}
 				<br />

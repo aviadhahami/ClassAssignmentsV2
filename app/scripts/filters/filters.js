@@ -16,6 +16,7 @@ angular.module('customFilters', []).filter('futureDates', function () {
                     if (item.due.getMonth() > date.getMonth() + 1) {
                         filtered.push(item);
                     } else if (item.due.getMonth() === date.getMonth() + 1) { //month even
+                        if (item.due.getDate() >= date.getDate()) { 
                             //TODO: implemenet hour check
                             filtered.push(item);
                         }

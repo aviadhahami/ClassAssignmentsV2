@@ -63,4 +63,8 @@ $scope.createTask = function () {
 };  
 
 $scope.selectedDate = d;
+
+$scope.refreshContent = function(){
+	$scope.$apply();
+};
 });

@@ -19,11 +19,10 @@
  		return diffDays;
  	};
   //=======AJAX REQUEST ! =========
-  $scope.getContentFromAjax = function() {
-  	getClassContentFactory.getContent('data/idc/', 'cs16')
-  	.success(function (data) {
-  		$scope.loading = false;
-  		$scope.assignList = data;
+  getClassContentFactory.getContent('data/idc/', 'cs16')
+  .success(function (data) {
+  	$scope.loading = false;
+  	$scope.assignList = data;
                         //converting the JSON to Date() object
                         //Get 1 day in milliseconds
                         var today = new Date();
@@ -37,9 +36,6 @@
                     	console.log('CRAZY ERROR!');
                     	console.log(data);
                     });
-
-                };
-                $scope.getContentFromAjax();
 
 //OUT GOING AJAX //
 var d = new Date();
@@ -67,7 +63,6 @@ $scope.createTask = function () {
 };  
 
 $scope.selectedDate = d;
-
 
 
 });

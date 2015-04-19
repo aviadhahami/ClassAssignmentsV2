@@ -28,12 +28,15 @@
                         //Get 1 day in milliseconds
                         var today = new Date();
                         angular.forEach(data, function (item) {
-                        	item.dueRaw = new Date(item.due.year, item.due.month-1, item.due.day, item.due.hours, item.due.minutes);
-                        	item.due = new Date(item.due.year, item.due.month, item.due.day);
-                        	item.timeLeft = $scope.calcDays(today,item.dueRaw);
-                        	item.timeLeftString = item.timeLeft <= 1 && item.timeLeft >= 0  ? 'TOMORROW' : item.timeLeft + ' Days to go';
+                          item.due.hours = !! item.due.hours  ? item.due.hours  : 23;
+                          item.due.minutes = !! item.due.hours  ? item.due.hours  : 59; 
+                          item.dueRaw = new Date(item.due.year, item.due.month-1, item.due.day, item.due.hours, item.due.minutes);
+                          console.log(item.due);
+                          item.due = new Date(item.due.year, item.due.month, item.due.day);
+                          item.timeLeft = $scope.calcDays(today,item.dueRaw);
+                          item.timeLeftString = item.timeLeft + ' Days to go';
                           //item.timeLeftString = item.timeLeft + ' Days to go';
-                          //console.log(item.timeLeft,item.timeLeftString);
+                          console.log(item.timeLeft,item.timeLeftString);
                         });
                       }).error(function (data) {
                        console.log('CRAZY ERROR!');

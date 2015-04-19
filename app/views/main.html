@@ -1,7 +1,7 @@
 <div class="col-md-8" ng-show="loading" >
 	<button class="btn btn-lg btn-warning"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Loading...</button>
 </div>
-<section ng-if="!loading"> <!--CHANGE ME BACK! -->
+<section ng-if="loading"> <!--CHANGE ME BACK! -->
 	<div class="container-fluid" >
 		<button style="float:right;" type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Add new task <span class="glyphicon glyphicon-plus"></span></button>
 	</div>
@@ -64,7 +64,7 @@
 			<div class="modal-body"  ng-if="didSubmit">
 				<!-- MODAL CONTENT -->
 				<form ng-submit="createTask()" class="form-inline">
-					<div class="col-md-4">
+					<div class="col-md-6">
 						<div class="form-group">
 							Task subject : <input type="text" placeholder="{{user.subject}}" ng-model="user.subject" />
 							<br />
@@ -72,12 +72,15 @@
 							<br />
 
 
+							<div>
+								Submission date:
+								<datepicker date-format="{{datePattern}}" button-prev="<<" button-next=">>">
+									<input ng-model="user.rawDateInput" type="text"/>
+								</datepicker>
+							</div>
+							Pick hour (HH) and minute (MM) : <input type="number" ng-model="user.due.hour" style="width:25%;"/> <input type="number" ng-model="user.due.minutes" style="width:25%;"/>
+							<br />
 
-							Submission date:
-							<datepicker date-format="{{datePattern}}" button-prev="<<" button-next=">>">
-								<input ng-model="user.rawDateInput" type="text"/>
-							</datepicker>
-							<!-- Hour : <input type="number" ng-model="user." /> -->
 						</div>
 						<br />
 					</div>

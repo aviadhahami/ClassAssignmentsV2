@@ -28,7 +28,7 @@
                         //Get 1 day in milliseconds
                         var today = new Date();
                         angular.forEach(data, function (item) {
-                        	item.dueRaw = new Date(item.due.year, item.due.month-1, item.due.day);
+                        	item.dueRaw = new Date(item.due.year, item.due.month-1, item.due.day, item.due.hours, item.due.minutes);
                         	item.due = new Date(item.due.year, item.due.month, item.due.day);
                         	item.timeLeft = $scope.calcDays(today,item.dueRaw);
                         	item.timeLeftString = item.timeLeft <= 1 && item.timeLeft >= 0  ? 'TOMORROW' : item.timeLeft + ' Days to go';
@@ -47,10 +47,12 @@ $scope.user = {
 	due: {
 		year: d.getFullYear(),
 		month: d.getMonth() + 1,
-		day: d.getDate()
-	},
-	number: 0,
-	rawDateInput : ''
+		day: d.getDate(),
+    hour: 23,
+    minutes : 59
+  },
+  number: 0,
+  rawDateInput : ''
 };
 
 $scope.createTask = function () {
@@ -59,7 +61,13 @@ $scope.createTask = function () {
 	$scope.user.due.year = $scope.user.rawDateInputContainer[2];
 	$scope.user.due.month = $scope.user.rawDateInputContainer[1];
 	$scope.user.due.day = $scope.user.rawDateInputContainer[0];
-	$scope.user.rawDateInputContainer = 'done';
+
+  //Hours and minutes
+  $scope.user.due.hours = $scope.user.due.hour > 23 ? 23 : $scope.user.due.hour ;
+  $scope.user.due.minutes = $scope.user.due.minutes > 59 ? 59 : $scope.user.due.minutes ;
+  //end hours
+
+  $scope.user.rawDateInputContainer = 'done';
 	//console.log($scope.user.due.day,$scope.user.due.month,$scope.user.due.day);
 	setClassContentFactory.setContent($scope.user);
 	console.log($scope.user);

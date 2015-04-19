@@ -15,9 +15,10 @@
  	$scope.calcDays = function (date1,date2){
  		//console.log(date1,date2);
  		var timeDiff = Math.abs(date2.getTime() - date1.getTime());
- 		var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
- 		return diffDays;
- 	};
+ 		//var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+    var diffDays = timeDiff / (1000 * 3600 * 24);
+    return diffDays;
+  };
   //=======AJAX REQUEST ! =========
   getClassContentFactory.getContent('data/idc/', 'cs16')
   .success(function (data) {
@@ -30,12 +31,12 @@
                         	item.dueRaw = new Date(item.due.year, item.due.month-1, item.due.day);
                         	item.due = new Date(item.due.year, item.due.month, item.due.day);
                         	item.timeLeft = $scope.calcDays(today,item.dueRaw);
-                        	item.timeLeftString = item.timeLeft <= 1 ? 'TODAY' : item.timeLeft + ' Days to go';
+                        	item.timeLeftString = item.timeLeft < 1 ? 'TODAY' : item.timeLeft + ' Days to go';
                         });
-                    }).error(function (data) {
-                    	console.log('CRAZY ERROR!');
-                    	console.log(data);
-                    });
+                      }).error(function (data) {
+                       console.log('CRAZY ERROR!');
+                       console.log(data);
+                     });
 
 //OUT GOING AJAX //
 var d = new Date();

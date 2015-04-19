@@ -29,7 +29,7 @@
                         var today = new Date();
                         angular.forEach(data, function (item) {
                           item.due.hours = !! item.due.hours  ? item.due.hours  : 23;
-                          item.due.minutes = !! item.due.hours  ? item.due.hours  : 59; 
+                          item.due.minutes = !! item.due.minutes  ? item.due.minutes  : 59; 
                           item.dueRaw = new Date(item.due.year, item.due.month-1, item.due.day, item.due.hours, item.due.minutes);
                           console.log(item.due);
                           item.due = new Date(item.due.year, item.due.month, item.due.day);

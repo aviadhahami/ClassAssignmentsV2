@@ -31,7 +31,7 @@
                         	item.dueRaw = new Date(item.due.year, item.due.month-1, item.due.day);
                         	item.due = new Date(item.due.year, item.due.month, item.due.day);
                         	item.timeLeft = $scope.calcDays(today,item.dueRaw);
-                        	item.timeLeftString = item.timeLeft <= 0 ? 'TODAY' : item.timeLeft + ' Days to go';
+                        	item.timeLeftString = item.timeLeft <= 1 && item.timeLeft >= 0  ? 'TOMORROW' : item.timeLeft + ' Days to go';
                           //item.timeLeftString = item.timeLeft + ' Days to go';
                           //console.log(item.timeLeft,item.timeLeftString);
                         });

@@ -67,7 +67,7 @@ $scope.createTask = function () {
 	$scope.user.due.day = $scope.user.rawDateInputContainer[0];
 
   //Hours and minutes
-  $scope.user.due.hours = $scope.user.due.hour > 23 ? 23 : $scope.user.due.hour ;
+  $scope.user.due.hour = $scope.user.due.hour > 23 ? 23 : $scope.user.due.hour ;
   $scope.user.due.minutes = $scope.user.due.minutes > 59 ? 59 : $scope.user.due.minutes ;
   //end hours
 

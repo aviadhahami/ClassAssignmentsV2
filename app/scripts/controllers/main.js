@@ -29,9 +29,9 @@
                         //Get 1 day in milliseconds
                         var today = new Date();
                         angular.forEach(data, function (item) {
-                          item.due.hour = !! item.due.hour  ? item.due.hour  : 23;
+                          item.due.hours = !! item.due.hours  ? item.due.hours  : 23;
                           item.due.minutes = !! item.due.minutes  ? item.due.minutes  : 59; 
-                          item.dueRaw = new Date(item.due.year, item.due.month-1, item.due.day, item.due.hour, item.due.minutes);
+                          item.dueRaw = new Date(item.due.year, item.due.month-1, item.due.day, item.due.hours, item.due.minutes);
                           console.log(item);
                           item.due = new Date(item.due.year, item.due.month, item.due.day);
                           item.timeLeft = $scope.calcDays(today,item.dueRaw);
@@ -66,22 +66,17 @@ $scope.createTask = function () {
 	$scope.user.due.month = $scope.user.rawDateInputContainer[1];
 	$scope.user.due.day = $scope.user.rawDateInputContainer[0];
 
-  //hour and minutes
-  $scope.user.due.hour = $scope.user.due.hour > 23 ? 23 : $scope.user.due.hour ;
+  //Hours and minutes
+  $scope.user.due.hours = $scope.user.due.hour > 23 ? 23 : $scope.user.due.hour ;
   $scope.user.due.minutes = $scope.user.due.minutes > 59 ? 59 : $scope.user.due.minutes ;
-  //end hour
+  //end hours
 
   $scope.user.rawDateInputContainer = 'done';
 
-  //resetting the due object
+  //clear this
+  $scope.user.rawDateInput = null;
+  $scope.user.rawDateInputContainer = null;
 
-  $scope.user.due = {
-    year : $scope.user.due.year,
-    month : $scope.user.due.month,
-    day: $scope.user.due.day,
-    hour :  $scope.user.due.hour,
-    minutes : $scope.user.due.minutes
-  };
 	//console.log($scope.user.due.day,$scope.user.due.month,$scope.user.due.day);
 	setClassContentFactory.setContent($scope.user);
 	console.log($scope.user);

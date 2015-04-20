@@ -74,8 +74,8 @@ $scope.createTask = function () {
   $scope.user.rawDateInputContainer = 'done';
 
   //clear this
-  delete $scope.user.rawDateInput;
-  delete $scope.user.rawDateInputContainer;
+  $scope.user.rawDateInput = null;
+  $scope.user.rawDateInputContainer = null;
 
 	//console.log($scope.user.due.day,$scope.user.due.month,$scope.user.due.day);
 	setClassContentFactory.setContent($scope.user);

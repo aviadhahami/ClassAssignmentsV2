@@ -15,7 +15,8 @@
  	$scope.calcDays = function (date1,date2){
  		//console.log(date1,date2);
  		var timeDiff = Math.abs(date2.getTime() - date1.getTime());
- 		var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+    var diffRaw = timeDiff / (1000 * 3600 * 24);
+    var diffDays = diffRaw >= 0 && diffRaw <= 1 ? (diffRaw > 0.5 ? 1 : 0): Math.ceil(diffRaw);
     //var diffDays = timeDiff / (1000 * 3600 * 24);
     return diffDays;
   };
@@ -31,7 +32,7 @@
                           item.due.hours = !! item.due.hours  ? item.due.hours  : 23;
                           item.due.minutes = !! item.due.minutes  ? item.due.minutes  : 59; 
                           item.dueRaw = new Date(item.due.year, item.due.month-1, item.due.day, item.due.hours, item.due.minutes);
-                          console.log(item.due);
+                          console.log(item);
                           item.due = new Date(item.due.year, item.due.month, item.due.day);
                           item.timeLeft = $scope.calcDays(today,item.dueRaw);
                           item.timeLeftString = item.timeLeft + ' Days to go';

@@ -16,7 +16,7 @@
 
  	$scope.calcDays = function (today,itemDay){
 
- 		console.log('today: ' + today, ' item Day ' + itemDay);
+ 		//console.log('today: ' + today, ' item Day ' + itemDay);
     if (today.getDate() === itemDay.getDate()){
       //means that's todat, we should calc time downward
       var hourDiff = Math.abs(today.getHours() - itemDay.getHours());
@@ -51,10 +51,10 @@
         item.dueRaw = new Date(item.due.year, item.due.month-1, item.due.day, item.due.hour, item.due.minutes);
         //console.log(item);
         //REQUIRED FOR FILTER
-        item.due = new Date(item.due.year, item.due.month, item.due.day);
+        item.due = new Date(item.due.year, item.due.month, item.due.day, item.due.hour, item.due.minutes);
         //END OF REQUIRED FOR FILTER
 
-        
+        console.log('due raw ' + item.dueRaw, ' due ' +item.due);
         item.timeLeftString = $scope.calcDays(today,item.dueRaw);
 
                           //item.timeLeftString = item.timeLeft + ' Days to go';

@@ -13,7 +13,7 @@
 			<div class="panel-body">
 				Assignment #{{ass.number}}
 				<br />
-				Due: {{ass.due.getDate() + "/"+ ass.due.getMonth() + "/" + ass.due.getFullYear()}}
+				Due: {{ass.due.getDate()}} / {{ass.due.getMonth()}} / {{ass.due.getFullYear()}} , {{ass.due.getHours()}}:{{ ass.due.getMinutes() }}
 			</div>
 		</div>
 <!-- STUB
@@ -37,7 +37,7 @@
 		<div class="panel-body">
 			Assignment #{{ass.number}}
 			<br />
-			Due: {{ass.due.getDate()}} / {{ass.due.getMonth()}} / {{ass.due.getFullYear()}} , {{ass.due.getHours()}} : {{ ass.due.getMinutes() }}
+			Due: {{ass.due.getDate()}} / {{ass.due.getMonth()}} / {{ass.due.getFullYear()}} , {{ass.due.getHours()}}:{{ ass.due.getMinutes() }}
 		</div>
 	</div>
 <!-- STUB

@@ -15,12 +15,19 @@
 
 
  	$scope.calcDays = function (date1,date2){
+
  		//console.log(date1,date2);
  		var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+    console.log(timeDiff);
     var diffRaw = timeDiff / (1000 * 3600 * 24); //calc how many days left
     var diffDays = diffRaw >= 0 && diffRaw <= 1 ? (diffRaw > 0.5 ? 1 : 0): Math.ceil(diffRaw);
     //var diffDays = timeDiff / (1000 * 3600 * 24);
+
     return diffDays;
+  };
+
+  $scope.generateTimeString = function(timeLeft){
+    return timeLeft + 'days';
   };
 
 

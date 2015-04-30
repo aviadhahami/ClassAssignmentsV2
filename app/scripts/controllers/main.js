@@ -22,7 +22,7 @@
       var hourDiff = Math.abs(today.getHours() - itemDay.getHours());
 
       //console.log(hourDiff,'rounded to',Math.round(hourDiff/(86400)));
-      return '~ ' + hourDiff + ' hours';
+      return '~ ' + hourDiff + (hourDiff === 1 ? ' hour' : ' hours');
 
 
     }else{

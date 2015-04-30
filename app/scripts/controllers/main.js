@@ -16,7 +16,7 @@
 
  	$scope.calcDays = function (today,itemDay){
 
- 		console.log(today,itemDay);
+ 		console.log('today: ' + today, 'item Day ' + itemDay);
     if (today.getDate() === itemDay.getDate()){
       //means that's todat, we should calc time downward
       var hourDiff = Math.abs(today.getHours() - itemDay.getHours());
@@ -26,10 +26,12 @@
 
 
     }else{
+
       //means we have more than one day
       var timeDiff= Math.abs(today.getDate() - itemDay.getDate());
-      var diffDays = timeDiff / (1000 * 3600 * 24);
-      return Math.ceil(diffDays) + ' days';
+      //var diffDays = timeDiff / (1000 * 3600 * 24);
+      var diffDays = Math.ceil(timeDiff/(24 * 60 * 60 * 1000));
+      return diffDays + ' days';
     }
 
   };
@@ -45,8 +47,9 @@
        angular.forEach(data, function (item) {
         item.due.hour = !! item.due.hour  ? item.due.hour  : 23;
         item.due.minutes = !! item.due.minutes  ? item.due.minutes  : 59; 
+        //decreasing month by one
         item.dueRaw = new Date(item.due.year, item.due.month-1, item.due.day, item.due.hour, item.due.minutes);
-        console.log(item);
+        //console.log(item);
         //REQUIRED FOR FILTER
         item.due = new Date(item.due.year, item.due.month, item.due.day);
         //END OF REQUIRED FOR FILTER

@@ -14,7 +14,7 @@
  	$scope.didSubmit = true;
 
 
- 	$scope.calcDays = function (today,itemDay){
+ 	$scope.calcDateDiffAndString = function (today,itemDay){
 
  		//console.log('today: ' + today, ' item Day ' + itemDay);
     if (today.getDate() === itemDay.getDate()){
@@ -23,7 +23,6 @@
 
       //console.log(hourDiff,'rounded to',Math.round(hourDiff/(86400)));
       return '~ ' + hourDiff + (hourDiff === 1 ? ' hour' : ' hours');
-
 
     }else{
 
@@ -34,6 +33,10 @@
       return diffDays + ' days';
     }
 
+  };
+
+  $scope.calcRawDiff = function (today,dueRaw){
+    return Math.abs(today-dueRaw);
   };
 
 
@@ -54,9 +57,9 @@
         item.due = new Date(item.due.year, item.due.month, item.due.day, item.due.hour, item.due.minutes);
         //END OF REQUIRED FOR FILTER
 
-        console.log('due raw ' + item.dueRaw, ' due ' +item.due);
-        item.timeLeftString = $scope.calcDays(today,item.dueRaw);
-
+        //console.log('due raw ' + item.dueRaw, ' due ' +item.due);
+        item.timeLeftString = $scope.calcDateDiffAndString(today,item.dueRaw);
+        item.timeLeft = $scope.calcRawDiff(today,item.dueRaw);
                           //item.timeLeftString = item.timeLeft + ' Days to go';
                           //console.log(item.timeLeft,item.timeLeftString);
                         });

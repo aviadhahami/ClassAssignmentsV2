@@ -91,7 +91,7 @@ $scope.createTask = function () {
   };
   console.log(readyData);
   setClassContentFactory.setContent(readyData);
-  console.log($scope.user);
+  //console.log($scope.user);
 };  
 
 $scope.selectedDate = d;

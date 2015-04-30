@@ -12,6 +12,8 @@
  	$scope.datePattern = 'dd/MM/yyyy';
  	$scope.loading = true;
  	$scope.didSubmit = true;
+
+
  	$scope.calcDays = function (date1,date2){
  		//console.log(date1,date2);
  		var timeDiff = Math.abs(date2.getTime() - date1.getTime());
@@ -20,29 +22,31 @@
     //var diffDays = timeDiff / (1000 * 3600 * 24);
     return diffDays;
   };
+
+
   //=======AJAX REQUEST ! =========
   getClassContentFactory.getContent('data/idc/', 'cs16')
   .success(function (data) {
-  	$scope.loading = false;
-  	$scope.assignList = data;
-                        //converting the JSON to Date() object
-                        //Get 1 day in milliseconds
-                        var today = new Date();
-                        angular.forEach(data, function (item) {
-                          item.due.hours = !! item.due.hours  ? item.due.hours  : 23;
-                          item.due.minutes = !! item.due.minutes  ? item.due.minutes  : 59; 
-                          item.dueRaw = new Date(item.due.year, item.due.month-1, item.due.day, item.due.hours, item.due.minutes);
-                          console.log(item);
-                          item.due = new Date(item.due.year, item.due.month, item.due.day);
-                          item.timeLeft = $scope.calcDays(today,item.dueRaw);
-                          item.timeLeftString = item.timeLeft === 0 ? 'TODAY' : item.timeLeft + ' Days to go';
+   $scope.loading = false;
+   $scope.assignList = data;
+       //converting the JSON to Date() object
+       var today = new Date();
+       angular.forEach(data, function (item) {
+        item.due.hours = !! item.due.hours  ? item.due.hours  : 23;
+        item.due.minutes = !! item.due.minutes  ? item.due.minutes  : 59; 
+        item.dueRaw = new Date(item.due.year, item.due.month-1, item.due.day, item.due.hours, item.due.minutes);
+        console.log(item);
+                                //item.due = new Date(item.due.year, item.due.month, item.due.day);
+                                item.timeLeft = $scope.calcDays(today,item.dueRaw);
+                                item.timeLeftString = $scope.generateTimeString(item.timeLeft);
+
                           //item.timeLeftString = item.timeLeft + ' Days to go';
                           console.log(item.timeLeft,item.timeLeftString);
                         });
-                      }).error(function (data) {
-                       console.log('CRAZY ERROR!');
-                       console.log(data);
-                     });
+     }).error(function (data) {
+       console.log('CRAZY ERROR!');
+       console.log(data);
+     });
 
 //OUT GOING AJAX //
 var d = new Date();

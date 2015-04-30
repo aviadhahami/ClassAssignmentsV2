@@ -14,20 +14,20 @@
  	$scope.didSubmit = true;
 
 
- 	$scope.calcDays = function (date1,date2){
+ 	$scope.calcDays = function (today,itemDay){
 
  		//console.log(date1,date2);
- 		var timeDiff = Math.abs(date2.getTime() - date1.getTime());
-    console.log(timeDiff);
-    var diffRaw = timeDiff / (1000 * 3600 * 24); //calc how many days left
-    var diffDays = diffRaw >= 0 && diffRaw <= 1 ? (diffRaw > 0.5 ? 1 : 0): Math.ceil(diffRaw);
-    //var diffDays = timeDiff / (1000 * 3600 * 24);
+    if (today.getDate() === itemDay.getDate()){
+      //means that's todat, we should calc time downward
+      var hourDiff = Math.abs(today.getHour() - itemDay.getHour());
+      return '~' + Math.ceil(hourDiff/(24*216000)) + ' hours';
+    }else{
+      //means we have more than one day
+      var timeDiff= Math.abs(today.getDate() - itemDay.getDate());
+      var diffDays = timeDiff / (1000 * 3600 * 24);
+      return Math.ceil(diffDays) + ' days';
+    }
 
-    return diffDays;
-  };
-
-  $scope.generateTimeString = function(timeLeft){
-    return timeLeft + 'days';
   };
 
 
@@ -43,9 +43,12 @@
         item.due.minutes = !! item.due.minutes  ? item.due.minutes  : 59; 
         item.dueRaw = new Date(item.due.year, item.due.month-1, item.due.day, item.due.hours, item.due.minutes);
         console.log(item);
-                                //item.due = new Date(item.due.year, item.due.month, item.due.day);
-                                item.timeLeft = $scope.calcDays(today,item.dueRaw);
-                                item.timeLeftString = $scope.generateTimeString(item.timeLeft);
+        //REQUIRED FOR FILTER
+        item.due = new Date(item.due.year, item.due.month, item.due.day);
+        //END OF REQUIRED FOR FILTER
+
+        
+        item.timeLeftString = $scope.calcDays(today,item.dueRaw);
 
                           //item.timeLeftString = item.timeLeft + ' Days to go';
                           console.log(item.timeLeft,item.timeLeftString);

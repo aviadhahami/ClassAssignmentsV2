@@ -16,11 +16,15 @@
 
  	$scope.calcDays = function (today,itemDay){
 
- 		console.log(date1,date2);
+ 		console.log(today,itemDay);
     if (today.getDate() === itemDay.getDate()){
       //means that's todat, we should calc time downward
       var hourDiff = Math.abs(today.getHours() - itemDay.getHours());
-      return '~' + Math.ceil(hourDiff/(24*216000)) + ' hours';
+
+      //console.log(hourDiff,'rounded to',Math.round(hourDiff/(86400)));
+      return '~ ' + hourDiff + ' hours';
+
+
     }else{
       //means we have more than one day
       var timeDiff= Math.abs(today.getDate() - itemDay.getDate());
@@ -51,7 +55,7 @@
         item.timeLeftString = $scope.calcDays(today,item.dueRaw);
 
                           //item.timeLeftString = item.timeLeft + ' Days to go';
-                          console.log(item.timeLeft,item.timeLeftString);
+                          //console.log(item.timeLeft,item.timeLeftString);
                         });
      }).error(function (data) {
        console.log('CRAZY ERROR!');

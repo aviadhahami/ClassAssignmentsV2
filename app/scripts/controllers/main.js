@@ -16,7 +16,7 @@
 
  	$scope.calcDays = function (today,itemDay){
 
- 		console.log('today: ' + today, 'item Day ' + itemDay);
+ 		console.log('today: ' + today, ' item Day ' + itemDay);
     if (today.getDate() === itemDay.getDate()){
       //means that's todat, we should calc time downward
       var hourDiff = Math.abs(today.getHours() - itemDay.getHours());
@@ -28,7 +28,7 @@
     }else{
 
       //means we have more than one day
-      var timeDiff= Math.abs(today.getDate() - itemDay.getDate());
+      var timeDiff= Math.abs(today- itemDay);
       //var diffDays = timeDiff / (1000 * 3600 * 24);
       var diffDays = Math.ceil(timeDiff/(24 * 60 * 60 * 1000));
       return diffDays + ' days';

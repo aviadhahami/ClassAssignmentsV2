@@ -43,9 +43,9 @@
        //converting the JSON to Date() object
        var today = new Date();
        angular.forEach(data, function (item) {
-        item.due.hours = !! item.due.hours  ? item.due.hours  : 23;
+        item.due.hour = !! item.due.hour  ? item.due.hour  : 23;
         item.due.minutes = !! item.due.minutes  ? item.due.minutes  : 59; 
-        item.dueRaw = new Date(item.due.year, item.due.month-1, item.due.day, item.due.hours, item.due.minutes);
+        item.dueRaw = new Date(item.due.year, item.due.month-1, item.due.day, item.due.hour, item.due.minutes);
         console.log(item);
         //REQUIRED FOR FILTER
         item.due = new Date(item.due.year, item.due.month, item.due.day);

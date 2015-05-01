@@ -30,7 +30,7 @@
       var timeDiff= Math.abs(today- itemDay);
       //var diffDays = timeDiff / (1000 * 3600 * 24);
       var diffDays = Math.ceil(timeDiff/(24 * 60 * 60 * 1000));
-      return diffDays + ' days';
+      return (diffDays -1 ) + ' days';
     }
 
   };
@@ -94,12 +94,6 @@ $scope.createTask = function () {
   $scope.user.due.hour = $scope.user.due.hour > 23 ? 23 : $scope.user.due.hour ;
   $scope.user.due.minutes = $scope.user.due.minutes > 59 ? 59 : $scope.user.due.minutes ;
   //end hours
-
-  $scope.user.rawDateInputContainer = 'done';
-
-  //clear this
-  $scope.user.rawDateInput = null;
-  $scope.user.rawDateInputContainer = null;
 
 	//console.log($scope.user.due.day,$scope.user.due.month,$scope.user.due.day);
   var readyData = {

@@ -23,14 +23,15 @@
 
       //console.log(hourDiff,'rounded to',Math.round(hourDiff/(86400)));
       return '~ ' + hourDiff + (hourDiff === 1 ? ' hour' : ' hours');
-
+    }else if(today.getFullYear() === itemDay.getFullYear() && Math.abs(today.getDate() - itemDay.getDate()) === 1){
+      return 'Tomorrow';
     }else{
 
       //means we have more than one day
       var timeDiff= Math.abs(today- itemDay);
       //var diffDays = timeDiff / (1000 * 3600 * 24);
       var diffDays = Math.ceil(timeDiff/(24 * 60 * 60 * 1000));
-      return (diffDays -1 ) + ' days';
+      return diffDays + ' days';
     }
 
   };

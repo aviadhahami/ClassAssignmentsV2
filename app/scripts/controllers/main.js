@@ -50,7 +50,7 @@
        var today = new Date();
        angular.forEach(data, function (item) {
         item.due.hour = !! item.due.hour  ? item.due.hour  : 23;
-        item.due.minutes = !! item.due.minutes  ? item.due.minutes  : 59; 
+        item.due.minutes = !! item.due.minutes  ? item.due.minutes  : 59;
         //decreasing month by one
         item.dueRaw = new Date(item.due.year, item.due.month-1, item.due.day, item.due.hour, item.due.minutes);
         //console.log(item);
@@ -111,7 +111,7 @@ $scope.createTask = function () {
   console.log(readyData);
   setClassContentFactory.setContent(readyData);
   //console.log($scope.user);
-};  
+};
 
 $scope.selectedDate = d;
 

@@ -27,7 +27,7 @@ class Setter {
     $originJSON = $fetcher->getFileAsJSON(); //post json Decode
     $mutableJsonData = $originJSON->records;
 
-    if ($this->inputJSON == null) {
+    if ($this->inputJSON == null || $this->inputJSON->subject == "") {
       echo "input was null for some reason, didn't inject";
     }else{
       array_push($mutableJsonData, $this->inputJSON);

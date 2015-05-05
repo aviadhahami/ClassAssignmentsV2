@@ -27,13 +27,16 @@ class Setter {
     $originJSON = $fetcher->getFileAsJSON(); //post json Decode
     $mutableJsonData = $originJSON->records;
 
-    array_push($mutableJsonData, $this->inputJSON);
+    if ($this->inputJSON == null) {
+      echo "input was null for some reason, didn't inject";
+    }else{
+      array_push($mutableJsonData, $this->inputJSON);
+      $jsonData = (array('records' => $mutableJsonData));
+      var_dump($jsonData);
+      //echo $this->path . $this->fileName . '.json';
+      file_put_contents($this->path . $this->fileName . '.json', json_encode($jsonData));
+    }
 
-
-    $jsonData = (array('records' => $mutableJsonData));
-    var_dump($jsonData);
-    //echo $this->path . $this->fileName . '.json';
-    file_put_contents($this->path . $this->fileName . '.json', json_encode($jsonData));
   }
 
   public function sayHi() {

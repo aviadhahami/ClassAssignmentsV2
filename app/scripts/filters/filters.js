@@ -8,9 +8,11 @@ angular.module('customFilters', []).filter('futureDates', function () {
   return function (items) {
     var filtered = [];
     var date = new Date();
+    var tempDate;
     angular.forEach(items, function (item) {
-
-      if (item && date - item > 0) {
+      tempDate = new Date(item.due.getFullYear(),item.due.getMonth()-1,item.due.getDate(),item.due.getHours(),item.due.getMinutes());
+      if (item && item.due && date < tempDate ) {
+        console.log(item,item.due, date < tempDate);
         // if (item.due.getFullYear() > date.getFullYear()) {
         //   filtered.push(item);
         // } else if (item.due.getFullYear() === date.getFullYear()) { //year is even
@@ -25,7 +27,8 @@ angular.module('customFilters', []).filter('futureDates', function () {
         // }
         filtered.push(item);
       } else {
-        console.log('dead item');
+        //console.log('dead item');
+        //console.log(item.due, date > item.due);
       }
     });
     return filtered;
@@ -34,8 +37,10 @@ angular.module('customFilters', []).filter('futureDates', function () {
   return function (items) {
     var filtered = [];
     var date = new Date();
+    var tempDate;
     angular.forEach(items, function (item) {
-      if (item && date - item < 0) {
+      tempDate = new Date(item.due.getFullYear(),item.due.getMonth()-1,item.due.getDate(),item.due.getHours(),item.due.getMinutes());
+      if (item && item.due && date > tempDate ) {
         //   if (item.due.getFullYear() < date.getFullYear()) {
         //     filtered.push(item);
         //   } else if (item.due.getFullYear() === date.getFullYear()) { //year is even

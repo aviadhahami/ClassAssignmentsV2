@@ -27,8 +27,14 @@ class FileManipulator {
 
   }
 
-  public function seekAndDestroy($value=''){
-    //# code...
+  public function seekAndDestroy($requiredObject){
+
+    var_dump($requiredObject);
+    //method to remove from array
+    // $x = array(5, 6);
+    // unset($x[0]);
+
+
   }
 
   public function closeFile(){

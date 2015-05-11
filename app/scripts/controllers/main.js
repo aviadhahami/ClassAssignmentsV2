@@ -19,11 +19,11 @@ angular.module('classAssignmentsV2App')
     //console.log('today: ' + today, ' item Day ' + itemDay);
     if (today.getDate() === itemDay.getDate()){
       //means that's todat, we should calc time downward
-      var hourDiff = today.getHours() - itemDay.getHours();
+      var hourDiff = itemDay.getHours() - today.getHours();
 
-      //console.log(hourDiff,'rounded to',Math.round(hourDiff/(86400)));
+      console.log(hourDiff,'is the hour diff');
       if (hourDiff < 0){
-        return 'submission passed!';
+        return 'sub. passed!';
       }else{
         return '~ ' + hourDiff + (hourDiff === 1 ? ' hour' : ' hours');
       }
@@ -63,7 +63,7 @@ angular.module('classAssignmentsV2App')
       item.due = new Date(item.due.year, item.due.month, item.due.day, item.due.hour, item.due.minutes);
       //END OF REQUIRED FOR FILTER
 
-      //console.log('due raw ' + item.dueRaw, ' due ' +item.due);
+      //console.log('item named ',$scope.subject,' went in');
       item.timeLeftString = $scope.calcDateDiffAndString(today,item.dueRaw);
       item.timeLeft = $scope.calcRawDiff(today,item.dueRaw);
       //item.timeLeftString = item.timeLeft + ' Days to go';
